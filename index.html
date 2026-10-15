@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Elis Garcia | Estética Avançada & Emagrecimento Full Redux</title>
+    <meta name="description" content="Elis Garcia Estética Avançada - Emagrecimento Full Redux em Balneário Camboriú. Resultados reais e visíveis. Agende sua avaliação!">
+    <meta name="theme-color" content="#b8860b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-dark: #8B6914;
+            --gold: #b8860b;
+            --gold-medium: #C9983A;
+            --gold-light: #D4A84B;
+            --gold-lighter: #E8CFA0;
+            --gold-pale: #F5E6C8;
+            --gold-faint: #FBF3E4;
+            --cream: #FDF8F0;
+            --cream-dark: #F7EFE2;
+            --white: #FFFFFF;
+            --text-dark: #2C2318;
+            --text-medium: #5A4A3A;
+            --text-light: #8A7A6A;
+            --shadow-soft: 0 2px 20px rgba(139, 105, 20, 0.08);
+            --shadow-medium: 0 8px 40px rgba(139, 105, 20, 0.12);
+            --shadow-strong: 0 15px 60px rgba(139, 105, 20, 0.18);
+            --gradient-gold: linear-gradient(135deg, #b8860b 0%, #D4A84B 50%, #b8860b 100%);
+            --gradient-gold-soft: linear-gradient(135deg, #F5E6C8 0%, #FDF8F0 50%, #F5E6C8 100%);
+            --gradient-hero: linear-gradient(180deg, rgba(253,248,240,0) 0%, rgba(253,248,240,0.8) 60%, rgba(253,248,240,1) 100%);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 40px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-lighter); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* ============ MOBILE APP-LIKE NAV ============ */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--gold-pale);
+            z-index: 1000;
+            padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-nav-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 10px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 4px 8px;
+        }
+
+        .mobile-nav a.active,
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-nav a svg {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.3s;
+        }
+
+        .mobile-nav a:hover svg {
+            transform: scale(1.1);
+        }
+
+        .mobile-nav .nav-whatsapp {
+            background: var(--gradient-gold);
+            color: white !important;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -26px;
+            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
+            position: relative;
+        }
+
+        .mobile-nav .nav-whatsapp::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            opacity: 0.3;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .mobile-nav .nav-whatsapp svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .mobile-nav .nav-whatsapp span {
+            display: none;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        /* ============ DESKTOP NAV ============ */
+        .desktop-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(253, 248, 240, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .desktop-nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .desktop-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 40px;
+        }
+
+        .nav-logo {
+            height: 50px;
+            transition: transform 0.3s;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s;
+            border-radius: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-gold) !important;
+            color: white !important;
+            padding: 12px 28px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+            transition: all 0.3s !important;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 25px rgba(184, 134, 11, 0.4) !important;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(circle at 20% 50%, var(--gold) 1px, transparent 1px),
+                              radial-gradient(circle at 80% 20%, var(--gold) 1px, transparent 1px),
+                              radial-gradient(circle at 60% 80%, var(--gold) 1px, transparent 1px);
+            background-size: 60px 60px, 80px 80px, 100px 100px;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        .hero-glow-1 {
+            top: -200px;
+            right: -100px;
+            background: var(--gold);
+        }
+
+        .hero-glow-2 {
+            bottom: -200px;
+            left: -100px;
+            background: var(--gold-light);
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-faint);
+            border: 1px solid var(--gold-pale);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold-dark);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 36px;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-gold);
+            color: white;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.4s;
+            box-shadow: 0 6px 30px rgba(184, 134, 11, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(184, 134, 11, 0.45);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.4s;
+            border: 2px solid var(--gold-lighter);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold-faint);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--gold-pale);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease 0.3s both;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            width: 420px;
+            height: 520px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-xl);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+            z-index: 2;
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .hero-image-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--gold-lighter);
+            border-radius: var(--radius-lg);
+            opacity: 0.4;
+        }
+
+        .hero-image-decoration-1 {
+            top: -20px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .hero-image-decoration-2 {
+            bottom: -15px;
+            left: -15px;
+            transform: rotate(-10deg);
+        }
+
+        .hero-float-card {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(15px);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-medium);
+            animation: float 4s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .hero-float-card-1 {
+            bottom: 40px;
+            left: -40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-float-card-1 .stars {
+            display: flex;
+            gap: 2px;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .hero-float-card-1 .rating-text {
+            font-size: 13px;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        .hero-float-card-1 .rating-sub {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .hero-float-card-2 {
+            top: 60px;
+            right: -30px;
+            animation-delay: -2s;
+        }
+
+        .hero-float-card-2 .float-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .hero-float-card-2 .float-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ============ MARQUEE ============ */
+        .marquee-section {
+            background: var(--gradient-gold);
+            padding: 14px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 40px;
+            white-space: nowrap;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .marquee-item .dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ============ SECTION STYLES ============ */
+        .section {
+            padding: 100px 40px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold-lighter);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-title span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        .about-image-accent {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--gold-lighter);
+            border-radius: var(--radius-xl);
+            z-index: -1;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .about-content h3 span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s;
+        }
+
+        .about-feature:hover {
+            background: var(--gold-faint);
+            transform: translateX(8px);
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .about-feature-icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .about-feature span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+
+        /* ============ SERVICES ============ */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 0 0 3px 3px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--gold-pale);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold-faint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            transition: all 0.4s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-gold);
+            transform: scale(1.1);
+        }
+
+        .service-card:hover .service-icon-emoji {
+            filter: brightness(10);
+        }
+
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        /* ============ RESULTS / BEFORE-AFTER ============ */
+        .results {
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .results-showcase {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .result-card {
+            background: var(--cream);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .result-image-area {
+            position: relative;
+            aspect-ratio: 4/3;
+            background: var(--gold-faint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .result-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold);
+        }
+
+        .result-placeholder svg {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+        }
+
+        .result-placeholder span {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.6;
+        }
+
+        .result-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--gradient-gold);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+
+        .result-info {
+            padding: 20px 24px;
+        }
+
+        .result-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .result-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .testimonials-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b8860b' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+
+        .testimonials-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            transition: all 0.4s;
+            border: 1px solid var(--gold-pale);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--gold-pale);
+            line-height: 1;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-stars svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+            fill: var(--gold);
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .testimonial-author-info h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author-info span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            background: var(--text-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--gold);
+            filter: blur(150px);
+            opacity: 0.08;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-inner .section-label {
+            color: var(--gold-light);
+        }
+
+        .cta-inner .section-label::before,
+        .cta-inner .section-label::after {
+            background: rgba(184, 134, 11, 0.4);
+        }
+
+        .cta-inner .section-title {
+            color: white;
+        }
+
+        .cta-inner .section-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.4s;
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.35);
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.45);
+        }
+
+        .cta-whatsapp svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.4s;
+        }
+
+        .cta-phone:hover {
+            background: rgba(184, 134, 11, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ============ LOCATION ============ */
+        .location {
+            background: var(--white);
+        }
+
+        .location-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .location-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            min-height: 400px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 400px;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            transition: all 0.3s;
+        }
+
+        .location-item:hover {
+            background: var(--gold-faint);
+            transform: translateX(5px);
+        }
+
+        .location-item-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .location-item-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .location-item-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .location-item-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .location-item-content a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ============ SOCIAL PROOF BAR ============ */
+        .social-bar {
+            background: var(--gold-faint);
+            padding: 30px 40px;
+        }
+
+        .social-bar-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: var(--white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .social-link:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--text-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            height: 50px;
+            filter: brightness(2);
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-social a svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom a {
+            color: var(--gold-light);
+            text-decoration: none;
+        }
+
+        /* ============ WHATSAPP FLOATING BUTTON (Desktop) ============ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.4s;
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: #25D366;
+            opacity: 0.3;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-left-color: white;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* ============ INCLUSIVE BADGE ============ */
+        .inclusive-section {
+            background: var(--gradient-gold-soft);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .inclusive-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .inclusive-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-medium);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .inclusive-badge span {
+            font-size: 18px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 100px 24px 60px;
+                gap: 40px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image-frame {
+                width: 320px;
+                height: 400px;
+            }
+
+            .hero-float-card-1 {
+                left: 10px;
+                bottom: 20px;
+            }
+
+            .hero-float-card-2 {
+                right: 10px;
+                top: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .whatsapp-float {
+                display: none;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .hero {
+                min-height: calc(100vh - 60px);
+            }
+
+            .hero-inner {
+                padding: 80px 20px 100px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-image-frame {
+                width: 280px;
+                height: 360px;
+            }
+
+            .hero-image-decoration {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .hero-stat-number {
+                font-size: 26px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .results-showcase {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+
+            .cta-section .section {
+                padding: 60px 20px;
+            }
+
+            .cta-whatsapp {
+                padding: 16px 32px;
+                font-size: 15px;
+            }
+
+            .location-map {
+                min-height: 280px;
+            }
+
+            .location-map iframe {
+                min-height: 280px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* App-like feel */
+            body {
+                padding-bottom: 80px;
+            }
+
+            .hero-float-card {
+                display: none;
+            }
+
+            .btn-secondary {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+
+            .btn-primary {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image-frame {
+                width: 240px;
+                height: 320px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                flex-direction: row;
+                gap: 16px;
+            }
+
+            .hero-stat-number {
+                font-size: 22px;
+            }
+
+            .hero-stat-label {
+                font-size: 10px;
+            }
+
+            .social-bar-inner {
+                gap: 12px;
+            }
+
+            .social-link {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+
+            .inclusive-badges {
+                flex-direction: column;
+            }
+        }
+
+        /* ============ ANIMATIONS ON SCROLL ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <!-- ============ DESKTOP NAVIGATION ============ -->
+    <nav class="desktop-nav" id="desktopNav">
+        <div class="desktop-nav-inner">
+            <img src="https://i.imgur.com/placeholder-logo.png" alt="Elis Garcia Estética Avançada" class="nav-logo"
+                 onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin', '<div style=\'font-family:Playfair Display,serif;font-size:20px;font-weight:600;color:#b8860b;\'>Elis Garcia<br><small style=font-size:11px;letter-spacing:2px;color:#8A7A6A;font-family:Montserrat,sans-serif;font-weight:500;>ESTÉTICA AVANÇADA</small></div>');">
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#resultados">Resultados</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#localizacao">Localização</a>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="nav-cta">Agendar Agora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ MOBILE BOTTOM NAVIGATION ============ -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-inner">
+            <a href="#hero" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Início</span>
+            </a>
+            <a href="#servicos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                <span>Serviços</span>
+            </a>
+            <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="nav-whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>WhatsApp</span>
+            </a>
+            <a href="#depoimentos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>Avaliações</span>
+            </a>
+            <a href="#localizacao">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Local</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Balneário Camboriú - SC
+                </div>
+                <h1 class="hero-title">
+                    Transforme seu corpo com <span>Estética Avançada</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Emagrecimento Full Redux com resultados reais e visíveis em curto prazo. 
+                    Cuide da sua beleza com quem entende do assunto.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="btn-primary">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Agendar Avaliação
+                    </a>
+                    <a href="#servicos" class="btn-secondary">
+                        Conhecer Serviços
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">500+</div>
+                        <div class="hero-stat-label">Clientes Atendidas</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5.0</div>
+                        <div class="hero-stat-label">Avaliação Google</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">7+</div>
+                        <div class="hero-stat-label">Anos de Experiência</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-decoration hero-image-decoration-1"></div>
+                <div class="hero-image-decoration hero-image-decoration-2"></div>
+                <div class="hero-image-frame">
+                    <img src="capa.jpg" alt="Elis Garcia - Esteticista"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22420%22 height=%22520%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23F5E6C8%22/%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23E8CFA0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22420%22 height=%22520%22 fill=%22url(%23g)%22/%3E%3Ctext x=%22210%22 y=%22240%22 text-anchor=%22middle%22 font-family=%22Playfair Display,serif%22 font-size=%2240%22 fill=%22%23b8860b%22 opacity=%22.5%22%3EElis%3C/text%3E%3Ctext x=%22210%22 y=%22290%22 text-anchor=%22middle%22 font-family=%22Playfair Display,serif%22 font-size=%2240%22 fill=%22%23b8860b%22 opacity=%22.5%22%3EGarcia%3C/text%3E%3C/svg%3E';">
+                </div>
+                <div class="hero-float-card hero-float-card-1">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="rating-text">5.0 no Google</div>
+                        <div class="rating-sub">Nota máxima!</div>
+                    </div>
+                </div>
+                <div class="hero-float-card hero-float-card-2">
+                    <div class="float-icon">✨</div>
+                    <div class="float-text">Resultados<br>Visíveis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><span class="dot"></span>Emagrecimento Full Redux</div>
+            <div class="marquee-item"><span class="dot"></span>Estética Avançada</div>
+            <div class="marquee-item"><span class="dot"></span>Resultados Reais</div>
+            <div class="marquee-item"><span class="dot"></span>Balneário Camboriú</div>
+            <div class="marquee-item"><span class="dot"></span>Atendimento Personalizado</div>
+            <div class="marquee-item"><span class="dot"></span>Produtos de Qualidade</div>
+            <div class="marquee-item"><span class="dot"></span>Emagrecimento Full Redux</div>
+            <div class="marquee-item"><span class="dot"></span>Estética Avançada</div>
+            <div class="marquee-item"><span class="dot"></span>Resultados Reais</div>
+            <div class="marquee-item"><span class="dot"></span>Balneário Camboriú</div>
+            <div class="marquee-item"><span class="dot"></span>Atendimento Personalizado</div>
+            <div class="marquee-item"><span class="dot"></span>Produtos de Qualidade</div>
+        </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="sobre">
+        <div class="about-grid">
+            <div class="about-image-wrapper reveal">
+                <img src="01.jpg" alt="Elis Garcia" class="about-image"
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22533%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23F5E6C8%22/%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23FDF8F0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22400%22 height=%22533%22 fill=%22url(%23g)%22/%3E%3Ctext x=%22200%22 y=%22260%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2228%22 fill=%22%23b8860b%22 opacity=%22.4%22%3EElis Garcia%3C/text%3E%3Ctext x=%22200%22 y=%22295%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2214%22 fill=%22%23b8860b%22 opacity=%22.3%22%3EEsteticista%3C/text%3E%3C/svg%3E';">
+                <div class="about-image-accent"></div>
+            </div>
+            <div class="about-content reveal reveal-delay-2">
+                <div class="section-label">
+                    Sobre mim
+                </div>
+                <h3>Olá, eu sou a <span>Elis Garcia</span></h3>
+                <p>
+                    Sou esteticista especializada em estética avançada e emagrecimento, 
+                    apaixonada por transformar vidas através do cuidado com o corpo e a autoestima. 
+                    Meu compromisso é oferecer tratamentos personalizados com as técnicas mais 
+                    modernas do mercado.
+                </p>
+                <p>
+                    Com anos de experiência e centenas de clientes satisfeitas, 
+                    meu objetivo é proporcionar resultados reais e visíveis, 
+                    sempre com acolhimento e profissionalismo.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span>Profissional Certificada em Estética Avançada</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <span>Produtos de Alta Qualidade e Tecnologia</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <span>Atendimento Humanizado e Personalizado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services section" id="servicos">
+        <div class="section-header reveal">
+            <div class="section-label">Nossos Serviços</div>
+            <h2 class="section-title">Tratamentos que <span>Transformam</span></h2>
+            <p class="section-desc">Conheça nossos procedimentos exclusivos com tecnologia de ponta para resultados reais</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">🔥</span>
+                </div>
+                <h4>Emagrecimento Full Redux</h4>
+                <p>Protocolo exclusivo de emagrecimento com resultados comprovados e visíveis em poucas sessões.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Emagrecimento%20Full%20Redux%20%F0%9F%94%A5" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">✨</span>
+                </div>
+                <h4>Estética Facial</h4>
+                <p>Tratamentos faciais avançados para rejuvenescimento, hidratação profunda e harmonização da pele.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Facial%20%E2%9C%A8" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">💎</span>
+                </div>
+                <h4>Estética Corporal</h4>
+                <p>Procedimentos corporais para modelagem, redução de medidas e tratamento de celulite e flacidez.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Corporal%20%F0%9F%92%8E" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">🌿</span>
+                </div>
+                <h4>Limpeza de Pele</h4>
+                <p>Limpeza profunda com extração, tonificação e nutrição para uma pele radiante e saudável.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20%F0%9F%8C%BF" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">⚡</span>
+                </div>
+                <h4>Radiofrequência</h4>
+                <p>Tecnologia avançada para estimulação de colágeno, firmeza da pele e rejuvenescimento.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Radiofrequ%C3%AAncia%20%E2%9A%A1" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon">
+                    <span class="service-icon-emoji">🧴</span>
+                </div>
+                <h4>Peelings Avançados</h4>
+                <p>Renovação celular com peelings químicos para manchas, acne, linhas finas e textura da pele.</p>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Peelings%20%F0%9F%A7%B4" target="_blank" class="service-link">
+                    Saiba mais →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="results section" id="resultados">
+        <div class="section-header reveal">
+            <div class="section-label">Resultados Reais</div>
+            <h2 class="section-title">Transformações que <span>Inspiram</span></h2>
+            <p class="section-desc">Veja os resultados reais das nossas clientes. Cada transformação é única e especial.</p>
+        </div>
+        <div class="results-showcase">
+            <div class="result-card reveal reveal-delay-1">
+                <div class="result-image-area">
+                    <div class="result-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span>Antes & Depois</span>
+                    </div>
+                    <div class="result-badge">Emagrecimento</div>
+                </div>
+                <div class="result-info">
+                    <h4>Redução de Medidas</h4>
+                    <p>Resultados visíveis após protocolo de Emagrecimento Full Redux com acompanhamento personalizado.</p>
+                </div>
+            </div>
+            <div class="result-card reveal reveal-delay-2">
+                <div class="result-image-area">
+                    <div class="result-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span>Antes & Depois</span>
+                    </div>
+                    <div class="result-badge">Facial</div>
+                </div>
+                <div class="result-info">
+                    <h4>Rejuvenescimento Facial</h4>
+                    <p>Pele mais firme, luminosa e jovem com nossos protocolos de estética facial avançada.</p>
+                </div>
+            </div>
+            <div class="result-card reveal reveal-delay-3">
+                <div class="result-image-area">
+                    <div class="result-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <span>Antes & Depois</span>
+                    </div>
+                    <div class="result-badge">Corporal</div>
+                </div>
+                <div class="result-info">
+                    <h4>Modelagem Corporal</h4>
+                    <p>Contornos corporais redefinidos com tecnologia de ponta e protocolos exclusivos.</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:40px;" class="reveal">
+            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Ver mais no Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials section" id="depoimentos">
+        <div class="testimonials-bg"></div>
+        <div class="section-header reveal">
+            <div class="section-label">Depoimentos</div>
+            <h2 class="section-title">O que dizem nossas <span>Clientes</span></h2>
+            <p class="section-desc">Avaliações reais do Google. Nossa satisfação é a sua transformação.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal reveal-delay-1">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                    "A Elis cuida de mim há 1 ano já! Super recomendo os tratamentos dela! 
+                    Atendimento impecável e produtos de qualidade ✅"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <div class="testimonial-author-info">
+                        <h5>Psicóloga Suelyn</h5>
+                        <span>Cliente há 1 ano</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-2">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                    "Resultados reais e fantásticos, visíveis em curto prazo. 
+                    Elis Garcia é uma profissional de estética avançada impecável. 
+                    Os resultados são surpreendentes. Superrecomendo!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">R</div>
+                    <div class="testimonial-author-info">
+                        <h5>Rogério Berndt</h5>
+                        <span>Avaliação Google</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-3">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                    "Super indico! Atendimento excelente e resultados esperados. 
+                    Me senti acolhida desde o primeiro momento. Recomendo de olhos fechados!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">D</div>
+                    <div class="testimonial-author-info">
+                        <h5>Daiane Rodrigues</h5>
+                        <span>Avaliação Google</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA SECTION ============ -->
+    <section class="cta-section">
+        <div class="cta-bg-glow"></div>
+        <div class="section" style="padding-top:80px;padding-bottom:80px;">
+            <div class="cta-inner reveal">
+                <div class="section-label">Agende Agora</div>
+                <h2 class="section-title">
+                    Pronta para a sua <span>Transformação</span>?
+                </h2>
+                <p class="section-desc">
+                    Agende sua avaliação gratuita e descubra o tratamento ideal para você. 
+                    Resultados reais, visíveis e duradouros te esperam.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita%20%F0%9F%92%9B" target="_blank" class="cta-whatsapp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Chamar no WhatsApp
+                    </a>
+                    <a href="tel:+5554996678180" class="cta-phone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        (54) 99667-8180
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LOCATION ============ -->
+    <section class="location section" id="localizacao">
+        <div class="section-header reveal">
+            <div class="section-label">Localização</div>
+            <h2 class="section-title">Venha nos <span>Visitar</span></h2>
+            <p class="section-desc">Estamos no coração de Balneário Camboriú, prontas para te receber</p>
+        </div>
+        <div class="location-grid">
+            <div class="location-map reveal">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.5!2d-48.6352!3d-26.9912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b5a0b0b0b0b0%3A0x0!2sR.%20Argentina%2C%2030%20-%20Na%C3%A7%C3%B5es%2C%20Balne%C3%A1rio%20Cambori%C3%BA%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="location-info reveal reveal-delay-2">
+                <div class="location-item">
+                    <div class="location-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="location-item-content">
+                        <h4>Endereço</h4>
+                        <p>R. Argentina, 30 - Sl 102<br>Nações, Balneário Camboriú - SC<br>CEP: 88330-000</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="location-item-content">
+                        <h4>Horário de Funcionamento</h4>
+                        <p>Segunda a Sexta: 9h às 19h<br>Sábado: Mediante agendamento</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="location-item-content">
+                        <h4>Contato</h4>
+                        <p><a href="https://wa.me/5554996678180" target="_blank">(54) 99667-8180</a><br>WhatsApp disponível</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9B" target="_blank" class="btn-primary" style="align-self:flex-start;margin-top:8px;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Agendar pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INCLUSIVE SECTION ============ -->
+    <div class="inclusive-section">
+        <div class="inclusive-badges">
+            <div class="inclusive-badge">
+                <span>🏳️‍🌈</span>
+                Empresa que acolhe a comunidade LGBTQ+
+            </div>
+            <div class="inclusive-badge">
+                <span>👩‍💼</span>
+                Empresa de Empreendedora
+            </div>
+            <div class="inclusive-badge">
+                <span>💛</span>
+                Atendimento Humanizado
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SOCIAL BAR ============ -->
+    <div class="social-bar">
+        <div class="social-bar-inner">
+            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @elisgarcia.estetica
+            </a>
+            <a href="https://www.facebook.com/elisangela.daros" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Facebook
+            </a>
+            <a href="https://wa.me/5554996678180" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--gold-light);">
+                    Elis Garcia
+                    <div style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;font-weight:500;margin-top:2px;">ESTÉTICA AVANÇADA</div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/elisangela.daros" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://wa.me/5554996678180" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Elis Garcia Estética Avançada. Todos os direitos reservados.</p>
+                <p>R. Argentina, 30 - Sl 102 - Nações, Balneário Camboriú - SC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ WHATSAPP FLOATING (Desktop only) ============ -->
+    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20%F0%9F%92%9B" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="whatsapp-tooltip">Fale conosco! 💛</div>
+    </a>
+
+    <script>
+        // ============ SCROLL REVEAL ============
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ============ DESKTOP NAV SCROLL EFFECT ============
+        const desktopNav = document.getElementById('desktopNav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                desktopNav.classList.add('scrolled');
+            } else {
+                desktopNav.classList.remove('scrolled');
+            }
+        });
+
+        // ============ MOBILE NAV ACTIVE STATE ============
+        const sections = document.querySelectorAll('section[id]');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a:not(.nav-whatsapp)');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ============ SMOOTH SCROLL ============
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = window.innerWidth <= 768 ? 20 : 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ============ COUNTER ANIMATION ============
+        const counters = document.querySelectorAll('.hero-stat-number');
+        let countersAnimated = false;
+
+        const animateCounters = () => {
+            if (countersAnimated) return;
+            countersAnimated = true;
+
+            counters.forEach(counter => {
+                const text = counter.textContent;
+                const isDecimal = text.includes('.');
+                const hasPlus = text.includes('+');
+                const target = parseFloat(text.replace('+', ''));
+                
+                let current = 0;
+                const increment = target / 60;
+                const duration = 2000;
+                const stepTime = duration / 60;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        if (isDecimal) {
+                            counter.textContent = current.toFixed(1);
+                        } else {
+                            counter.textContent = Math.floor(current) + (hasPlus ? '+' : '');
+                        }
+                        setTimeout(updateCounter, stepTime);
+                    } else {
+                        counter.textContent = text;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) heroObserver.observe(heroStats);
+    </script>
+</body>
+</html>
