@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Elis Garcia | Estética Avançada & Emagrecimento Full Redux</title>
     <meta name="description" content="Elis Garcia Estética Avançada - Emagrecimento Full Redux em Balneário Camboriú. Resultados reais e visíveis. Agende sua avaliação!">
     <meta name="theme-color" content="#b8860b">
@@ -57,6 +57,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 70px; /* Space for mobile nav */
         }
 
         /* Scrollbar */
@@ -72,12 +73,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-top: 1px solid var(--gold-pale);
             z-index: 1000;
-            padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+            padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
         }
 
         .mobile-nav-inner {
@@ -92,13 +94,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             text-decoration: none;
             color: var(--text-light);
             font-size: 10px;
             font-weight: 500;
             transition: color 0.3s;
-            padding: 4px 8px;
+            padding: 2px 6px;
+            border-radius: 8px;
         }
 
         .mobile-nav a.active,
@@ -119,15 +122,16 @@
         .mobile-nav .nav-whatsapp {
             background: var(--gradient-gold);
             color: white !important;
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: -26px;
-            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
+            margin-top: -28px;
+            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.5);
             position: relative;
+            border: 3px solid white;
         }
 
         .mobile-nav .nav-whatsapp::before {
@@ -141,8 +145,8 @@
         }
 
         .mobile-nav .nav-whatsapp svg {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
         }
 
         .mobile-nav .nav-whatsapp span {
@@ -151,7 +155,7 @@
 
         @keyframes pulse-ring {
             0% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.15); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 0; }
             100% { transform: scale(1); opacity: 0; }
         }
 
@@ -886,21 +890,35 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: all 0.4s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
         }
 
         .result-image-area {
             position: relative;
-            aspect-ratio: 4/3;
+            aspect-ratio: 4/5;
             background: var(--gold-faint);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+        }
+
+        .result-image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .result-card:hover .result-image-area img {
+            transform: scale(1.05);
         }
 
         .result-placeholder {
@@ -934,6 +952,29 @@
             padding: 6px 14px;
             border-radius: 50px;
             letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .result-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .result-card:hover .result-overlay {
+            opacity: 1;
+        }
+
+        .result-overlay svg {
+            width: 40px;
+            height: 40px;
+            color: white;
         }
 
         .result-info {
@@ -1607,7 +1648,7 @@
 
             /* App-like feel */
             body {
-                padding-bottom: 80px;
+                padding-bottom: 70px;
             }
 
             .hero-float-card {
@@ -1622,6 +1663,11 @@
             .btn-primary {
                 padding: 14px 28px;
                 font-size: 14px;
+            }
+
+            .result-card {
+                max-width: 380px;
+                margin: 0 auto;
             }
         }
 
@@ -1703,23 +1749,23 @@
     <!-- ============ MOBILE BOTTOM NAVIGATION ============ -->
     <nav class="mobile-nav">
         <div class="mobile-nav-inner">
-            <a href="#hero" class="active">
+            <a href="#hero" class="active" aria-label="Início">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span>Início</span>
             </a>
-            <a href="#servicos">
+            <a href="#servicos" aria-label="Serviços">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 <span>Serviços</span>
             </a>
-            <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="nav-whatsapp">
+            <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="nav-whatsapp" aria-label="WhatsApp">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 <span>WhatsApp</span>
             </a>
-            <a href="#depoimentos">
+            <a href="#depoimentos" aria-label="Avaliações">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 <span>Avaliações</span>
             </a>
-            <a href="#localizacao">
+            <a href="#localizacao" aria-label="Localização">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span>Local</span>
             </a>
@@ -1745,11 +1791,11 @@
                     Cuide da sua beleza com quem entende do assunto.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="btn-primary">
+                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20%F0%9F%92%9B" target="_blank" class="btn-primary" aria-label="Agendar avaliação pelo WhatsApp">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Agendar Avaliação
                     </a>
-                    <a href="#servicos" class="btn-secondary">
+                    <a href="#servicos" class="btn-secondary" aria-label="Conhecer serviços">
                         Conhecer Serviços
                     </a>
                 </div>
@@ -1870,7 +1916,7 @@
                 </div>
                 <h4>Emagrecimento Full Redux</h4>
                 <p>Protocolo exclusivo de emagrecimento com resultados comprovados e visíveis em poucas sessões.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Emagrecimento%20Full%20Redux%20%F0%9F%94%A5" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Emagrecimento%20Full%20Redux%20%F0%9F%94%A5" target="_blank" class="service-link" aria-label="Saiba mais sobre Emagrecimento Full Redux">
                     Saiba mais →
                 </a>
             </div>
@@ -1880,7 +1926,7 @@
                 </div>
                 <h4>Estética Facial</h4>
                 <p>Tratamentos faciais avançados para rejuvenescimento, hidratação profunda e harmonização da pele.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Facial%20%E2%9C%A8" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Facial%20%E2%9C%A8" target="_blank" class="service-link" aria-label="Saiba mais sobre Estética Facial">
                     Saiba mais →
                 </a>
             </div>
@@ -1890,7 +1936,7 @@
                 </div>
                 <h4>Estética Corporal</h4>
                 <p>Procedimentos corporais para modelagem, redução de medidas e tratamento de celulite e flacidez.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Corporal%20%F0%9F%92%8E" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Est%C3%A9tica%20Corporal%20%F0%9F%92%8E" target="_blank" class="service-link" aria-label="Saiba mais sobre Estética Corporal">
                     Saiba mais →
                 </a>
             </div>
@@ -1900,7 +1946,7 @@
                 </div>
                 <h4>Limpeza de Pele</h4>
                 <p>Limpeza profunda com extração, tonificação e nutrição para uma pele radiante e saudável.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20%F0%9F%8C%BF" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20%F0%9F%8C%BF" target="_blank" class="service-link" aria-label="Saiba mais sobre Limpeza de Pele">
                     Saiba mais →
                 </a>
             </div>
@@ -1910,7 +1956,7 @@
                 </div>
                 <h4>Radiofrequência</h4>
                 <p>Tecnologia avançada para estimulação de colágeno, firmeza da pele e rejuvenescimento.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Radiofrequ%C3%AAncia%20%E2%9A%A1" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Radiofrequ%C3%AAncia%20%E2%9A%A1" target="_blank" class="service-link" aria-label="Saiba mais sobre Radiofrequência">
                     Saiba mais →
                 </a>
             </div>
@@ -1920,14 +1966,14 @@
                 </div>
                 <h4>Peelings Avançados</h4>
                 <p>Renovação celular com peelings químicos para manchas, acne, linhas finas e textura da pele.</p>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Peelings%20%F0%9F%A7%B4" target="_blank" class="service-link">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20Peelings%20%F0%9F%A7%B4" target="_blank" class="service-link" aria-label="Saiba mais sobre Peelings Avançados">
                     Saiba mais →
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ============ RESULTS ============ -->
+    <!-- ============ RESULTS / BEFORE-AFTER (UPDATED) ============ -->
     <section class="results section" id="resultados">
         <div class="section-header reveal">
             <div class="section-label">Resultados Reais</div>
@@ -1935,48 +1981,54 @@
             <p class="section-desc">Veja os resultados reais das nossas clientes. Cada transformação é única e especial.</p>
         </div>
         <div class="results-showcase">
-            <div class="result-card reveal reveal-delay-1">
+            <!-- Result Card 1: Emagrecimento -->
+            <a href="https://www.instagram.com/elisgarcia.estetica/reel/Dc3e0meAEGa/" target="_blank" class="result-card reveal reveal-delay-1" aria-label="Ver resultado de Emagrecimento no Instagram">
                 <div class="result-image-area">
-                    <div class="result-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Antes & Depois</span>
-                    </div>
+                    <img src="emagrecimento.jpg" alt="Antes e Depois - Emagrecimento Full Redux"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'result-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\' ry=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><span>Antes & Depois</span></div>';">
                     <div class="result-badge">Emagrecimento</div>
+                    <div class="result-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
                 </div>
                 <div class="result-info">
                     <h4>Redução de Medidas</h4>
                     <p>Resultados visíveis após protocolo de Emagrecimento Full Redux com acompanhamento personalizado.</p>
                 </div>
-            </div>
-            <div class="result-card reveal reveal-delay-2">
+            </a>
+            <!-- Result Card 2: Rejuvenescimento -->
+            <a href="https://www.instagram.com/elisgarcia.estetica/p/DbI3yijTDcl/" target="_blank" class="result-card reveal reveal-delay-2" aria-label="Ver resultado de Rejuvenescimento no Instagram">
                 <div class="result-image-area">
-                    <div class="result-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Antes & Depois</span>
-                    </div>
+                    <img src="rejuvenescimento.jpg" alt="Antes e Depois - Rejuvenescimento Facial"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'result-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\' ry=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><span>Antes & Depois</span></div>';">
                     <div class="result-badge">Facial</div>
+                    <div class="result-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
                 </div>
                 <div class="result-info">
                     <h4>Rejuvenescimento Facial</h4>
                     <p>Pele mais firme, luminosa e jovem com nossos protocolos de estética facial avançada.</p>
                 </div>
-            </div>
-            <div class="result-card reveal reveal-delay-3">
+            </a>
+            <!-- Result Card 3: Modelagem Corporal -->
+            <a href="https://www.instagram.com/elisgarcia.estetica/p/DWEfSfRFrFq/" target="_blank" class="result-card reveal reveal-delay-3" aria-label="Ver resultado de Modelagem Corporal no Instagram">
                 <div class="result-image-area">
-                    <div class="result-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Antes & Depois</span>
-                    </div>
+                    <img src="modelagem.jpg" alt="Antes e Depois - Modelagem Corporal"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'result-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\' ry=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><span>Antes & Depois</span></div>';">
                     <div class="result-badge">Corporal</div>
+                    <div class="result-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
                 </div>
                 <div class="result-info">
                     <h4>Modelagem Corporal</h4>
                     <p>Contornos corporais redefinidos com tecnologia de ponta e protocolos exclusivos.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div style="text-align:center; margin-top:40px;" class="reveal">
-            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="btn-secondary">
+            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="btn-secondary" aria-label="Ver mais no Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 Ver mais no Instagram
             </a>
@@ -2073,11 +2125,11 @@
                     Resultados reais, visíveis e duradouros te esperam.
                 </p>
                 <div class="cta-buttons">
-                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita%20%F0%9F%92%9B" target="_blank" class="cta-whatsapp">
+                    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20gratuita%20%F0%9F%92%9B" target="_blank" class="cta-whatsapp" aria-label="Chamar no WhatsApp para agendar avaliação gratuita">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Chamar no WhatsApp
                     </a>
-                    <a href="tel:+5554996678180" class="cta-phone">
+                    <a href="tel:+5554996678180" class="cta-phone" aria-label="Ligar para Elis Garcia">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         (54) 99667-8180
                     </a>
@@ -2099,7 +2151,8 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.5!2d-48.6352!3d-26.9912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b5a0b0b0b0b0%3A0x0!2sR.%20Argentina%2C%2030%20-%20Na%C3%A7%C3%B5es%2C%20Balne%C3%A1rio%20Cambori%C3%BA%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
                     allowfullscreen="" 
                     loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa da localização da Elis Garcia Estética Avançada">
                 </iframe>
             </div>
             <div class="location-info reveal reveal-delay-2">
@@ -2127,10 +2180,10 @@
                     </div>
                     <div class="location-item-content">
                         <h4>Contato</h4>
-                        <p><a href="https://wa.me/5554996678180" target="_blank">(54) 99667-8180</a><br>WhatsApp disponível</p>
+                        <p><a href="https://wa.me/5554996678180" target="_blank" aria-label="Chamar no WhatsApp">(54) 99667-8180</a><br>WhatsApp disponível</p>
                     </div>
                 </div>
-                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9B" target="_blank" class="btn-primary" style="align-self:flex-start;margin-top:8px;">
+                <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20%F0%9F%92%9B" target="_blank" class="btn-primary" style="align-self:flex-start;margin-top:8px;" aria-label="Agendar pelo WhatsApp">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Agendar pelo WhatsApp
                 </a>
@@ -2159,15 +2212,15 @@
     <!-- ============ SOCIAL BAR ============ -->
     <div class="social-bar">
         <div class="social-bar-inner">
-            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/elisgarcia.estetica/" target="_blank" class="social-link" aria-label="Instagram da Elis Garcia">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 @elisgarcia.estetica
             </a>
-            <a href="https://www.facebook.com/elisangela.daros" target="_blank" class="social-link">
+            <a href="https://www.facebook.com/elisangela.daros" target="_blank" class="social-link" aria-label="Facebook da Elis Garcia">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 Facebook
             </a>
-            <a href="https://wa.me/5554996678180" target="_blank" class="social-link">
+            <a href="https://wa.me/5554996678180" target="_blank" class="social-link" aria-label="WhatsApp da Elis Garcia">
                 <svg viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 WhatsApp
             </a>
@@ -2202,7 +2255,7 @@
     </footer>
 
     <!-- ============ WHATSAPP FLOATING (Desktop only) ============ -->
-    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20%F0%9F%92%9B" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <a href="https://wa.me/5554996678180?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20%F0%9F%92%9B" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <div class="whatsapp-tooltip">Fale conosco! 💛</div>
     </a>
@@ -2242,7 +2295,7 @@
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - 150;
                 const sectionHeight = section.offsetHeight;
                 if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
@@ -2319,6 +2372,16 @@
 
         const heroStats = document.querySelector('.hero-stats');
         if (heroStats) heroObserver.observe(heroStats);
+
+        // ============ APP-LIKE TOUCH FEEDBACK ============
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('touchstart', function() {
+                this.style.opacity = '0.8';
+            }, { passive: true });
+            el.addEventListener('touchend', function() {
+                this.style.opacity = '1';
+            }, { passive: true });
+        });
     </script>
 </body>
 </html>
